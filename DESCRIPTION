@@ -1,0 +1,11 @@
+Package: FactorAssumptions
+Type: Package
+Title: Set of Assumptions for Factor and Principal Component Analysis
+Version: 1.0.0
+Author: Jose Eduardo Storopoli
+Maintainer: Jose Eduardo Storopoli <thestoropoli@gmail.com>
+Description: Tests for Kaiser-Meyer-Olkin (KMO) and Communalities in a dataset. It provides a final sample by removing variables in a iterable manner while keeping account of the variables that were removed in each step.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
