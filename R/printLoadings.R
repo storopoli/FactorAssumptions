@@ -1,5 +1,14 @@
 #' Helper function for printing rotated component matrix
 #' Function to get a rotated component matrix from a factor analysis in psych while sorting and cutoff
+#'
+#' @param x object resultant from a factor analysis \code{\link[psych]{principal}} or \code{\link[psych]{fa}} function from \code{psych} package
+#' @param digits number of digits to print
+#' @param cutoff minimal variable loadings to show
+#' @param sort binary True or False
+#' @param ... etc
+#'
+#' @importFrom utils getS3method
+#'
 #' @seealso
 #' taken from: https://stackoverflow.com/questions/12114440/how-do-i-export-a-sorted-factor-loading-table
 #' @export

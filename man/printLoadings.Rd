@@ -7,6 +7,17 @@ Function to get a rotated component matrix from a factor analysis in psych while
 \usage{
 printLoadings(x, digits = 3, cutoff = 0.4, sort = TRUE, ...)
 }
+\arguments{
+\item{x}{object resultant from a factor analysis \code{\link[psych]{principal}} or \code{\link[psych]{fa}} function from \code{psych} package}
+
+\item{digits}{number of digits to print}
+
+\item{cutoff}{minimal variable loadings to show}
+
+\item{sort}{binary True or False}
+
+\item{...}{etc}
+}
 \description{
 Helper function for printing rotated component matrix
 Function to get a rotated component matrix from a factor analysis in psych while sorting and cutoff

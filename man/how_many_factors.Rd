@@ -2,7 +2,7 @@
 % Please edit documentation in R/how_many_factors.R
 \name{how_many_factors}
 \alias{how_many_factors}
-\title{Plots a Scree Plot to determine how many factors (or componentes to retain)}
+\title{Plots a Scree Plot to determine how many factors (or components to retain)}
 \usage{
 how_many_factors(df, rep = 1000, cent = 0.05)
 }

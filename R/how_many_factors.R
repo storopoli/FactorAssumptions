@@ -1,4 +1,4 @@
-#' Plots a Scree Plot to determine how many factors (or componentes to retain)
+#' Plots a Scree Plot to determine how many factors (or components to retain)
 #'
 #' \code{how_many_factors()} call upon the \code{\link[nFactors]{plotnScree}} function from \code{nFactors} package to iterate over the variables of a dataframe.
 #'
@@ -14,13 +14,14 @@
 #' @param rep numeric: number of replications of the correlation matrix (default is 1000)
 #' @param cent numeric: quantile of the distribution on which the decision is made (default is 0.05)
 #'
+#' @import nFactors
+#'
 #'@seealso
 #' \link[nFactors]{plotnScree}
 #' @export
 
 how_many_factors <- function(df, rep=1000, cent=0.05){
   # Determining the Number of Factors to Extract
-  require(nFactors)
   ev <- eigen(cor(df)) # get eigenvalues
   ap <- parallel(subject=nrow(df),var=ncol(df),
                  rep=rep,cent=cent)

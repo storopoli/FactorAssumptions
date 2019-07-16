@@ -10,11 +10,13 @@
 #' \item \code{AIR} - Anti-image Correlation Matrix
 #'}
 #'
+#' @import MASS
+#'
+#' @importFrom stats cor
+#'
 #' @export
 
 kmo = function(x){
-
-  require(MASS)
   X <- cor(as.matrix(x))
   iX <- ginv(X)
   S2 <- diag(diag((iX^-1)))

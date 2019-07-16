@@ -14,21 +14,18 @@ communalities_optimal_solution(df, nfactors, rotate = "varimax")
 \item{rotate}{rotation to be employed (default is varimax)}
 }
 \value{
-\enumerate{
-\item \code{optimalcomdf} - A \emph{global environment} dataframe with the optimal solution output
-\item A list with \enumerate{
+A list with \enumerate{
 \item \code{df} - A dataframe that has reached its optimal solution in terms of KMO values
-\item \code{removed} - A list of removed variables ordened by the first to last removed during the procedure
+\item \code{removed} - A list of removed variables ordered by the first to last removed during the procedure
 \item \code{loadings} - A table with the communalities loadings from the variables final iteration
 \item \code{pca_results} - Results of the final iteration of the \code{\link{principal}} function from \code{psych} package
-}
 }
 }
 \description{
 \code{communalities_optimal_solution()} call upon the \code{\link[psych]{principal}} function from \code{psych} package to iterate over the variables of a dataframe.
 }
 \details{
-If finds any individual communality below the optimal value of 0.5 then removes the lowest communality value variable untill no more variable has not-optimal communality values.
+If finds any individual communality below the optimal value of 0.5 then removes the lowest communality value variable until no more variable has not-optimal communality values.
 }
 \seealso{
 \code{\link[psych]{principal}}

@@ -2,42 +2,37 @@
 #'
 #' \code{communalities_optimal_solution()} call upon the \code{\link[psych]{principal}} function from \code{psych} package to iterate over the variables of a dataframe.
 #'
-#'If finds any individual communality below the optimal value of 0.5 then removes the lowest communality value variable untill no more variable has not-optimal communality values.
+#'If finds any individual communality below the optimal value of 0.5 then removes the lowest communality value variable until no more variable has not-optimal communality values.
 #'
 #' @param df a dataframe with only \code{int} or \code{num} type of variables
 #' @param nfactors number of factors to extract in principal components or factor analysis
 #' @param rotate rotation to be employed (default is varimax)
 #'
-#' @return \enumerate{
-#' \item \code{optimalcomdf} - A \emph{global environment} dataframe with the optimal solution output
-#' \item A list with \enumerate{
+#' @return A list with \enumerate{
 #' \item \code{df} - A dataframe that has reached its optimal solution in terms of KMO values
-#' \item \code{removed} - A list of removed variables ordened by the first to last removed during the procedure
+#' \item \code{removed} - A list of removed variables ordered by the first to last removed during the procedure
 #' \item \code{loadings} - A table with the communalities loadings from the variables final iteration
 #' \item \code{pca_results} - Results of the final iteration of the \code{\link{principal}} function from \code{psych} package
 #'}
-#'}
 #'
-#'@seealso
+#' @import psych
+#'
+#' @importFrom graphics plot
+#'
+#' @seealso
 #' \code{\link[psych]{principal}}
 #' @export
 
 communalities_optimal_solution <- function(df, nfactors, rotate="varimax"){
-  require(psych)
   removed <- c()
   results <- principal(df, nfactors = nfactors, rotate = rotate, scores = T)
-  #results$communality <- as.data.frame(results$communality)
   while (any(as.data.frame(as.data.frame(results$communality)) < 0.5)){
     message(sprintf("There is still an individual communality value below 0.5: "),
             rownames(as.data.frame(results$communality))[which.min(apply(as.data.frame(results$communality),MARGIN=1,min))]," - ",
             min(as.data.frame(results$communality)))
     column <- sprintf(rownames(as.data.frame(results$communality))[which.min(apply(as.data.frame(results$communality),MARGIN=1,min))])
     removed <- c(removed, column)
-    #row <- match(column,names(df))
-    #row <- as.numeric(gsub("([0-9]+).*$", "\\1", row))
     df <- df[, !(colnames(df) %in% column), drop=FALSE]
-    #df <- df[-row, ]
-    #rownames(df) <- NULL
     results <- principal(df, nfactors = nfactors, scores = T)
   }
 
@@ -46,8 +41,6 @@ communalities_optimal_solution <- function(df, nfactors, rotate="varimax"){
   fa.diagram(results, digits = 3, cut = 0.4, sort = T) # Diagram of Factors, items and loadings
 
   plot(results)
-
-  assign("optimalcomdf", df, envir=globalenv())
 
   return(list(
     df = df,

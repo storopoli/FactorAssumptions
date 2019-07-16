@@ -10,20 +10,17 @@ kmo_optimal_solution(df)
 \item{df}{a dataframe with only \code{int} or \code{num} type of variables}
 }
 \value{
-\enumerate{
-\item \code{optimalkmodf} - A \emph{global environment} dataframe with the optimal solution output
-\item A list with \enumerate{
+A list with \enumerate{
 \item \code{df} - A dataframe that has reached its optimal solution in terms of KMO values
 \item \code{removed} - A list of removed variables ordened by the first to last removed during the procedure
 \item \code{kmo_results} - Results of the final iteration of the \code{\link{kmo}} function
-}
 }
 }
 \description{
 \code{kmo_optimal_solution()} call upon the \code{\link[FactorAssumptions]{kmo}} function to iterate over the variables of a dataframe.
 }
 \details{
-If finds any individual KMO's below the optimal value of 0.5 then removes the lowest KMO value variable untill no more variable has not-optimal KMO values.
+If finds any individual KMO's below the optimal value of 0.5 then removes the lowest KMO value variable until no more variable has not-optimal KMO values.
 }
 \seealso{
 \code{\link{kmo}} for kmo computation function
