@@ -1,9 +1,3 @@
-# FactorAssumptions 1.0.2
-
-July, 16th 2019
-
-Created the Vignette
-
 # FactorAssumptions 1.0.1
 
 July, 16th 2019
