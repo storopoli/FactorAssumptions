@@ -4,7 +4,5 @@
 .Ruserdata
 packrat/lib*/
 CRAN-RELEASE
-<<<<<<< HEAD
-=======
+doc
 Meta
->>>>>>> parent of e8e3ff5... Revert "Added Vignette"
