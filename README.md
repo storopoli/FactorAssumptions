@@ -15,7 +15,9 @@ install.packages("FactorAssumptions")
 # install.packages("devtools")
 devtools::install_github("storopoli/FactorAssumptions")
 ```
+## Vignette
 
+I encourage you to check the [vignette](vignettes/vignette.Rmd) on how to use the package.
 # Author
 Jose Eduardo Storopoli
 [e-mail](mailto:thestoropoli@gmail.com)

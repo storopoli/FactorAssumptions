@@ -1,7 +1,7 @@
 Package: FactorAssumptions
 Type: Package
 Title: Set of Assumptions for Factor and Principal Component Analysis
-Version: 1.0.1
+Version: 1.0.2
 Author: Jose Eduardo Storopoli
 Maintainer: Jose Eduardo Storopoli <thestoropoli@gmail.com>
 Description: Tests for Kaiser-Meyer-Olkin (KMO) and Communalities in a dataset. It provides a final sample by removing variables in a iterable manner while keeping account of the variables that were removed in each step.
@@ -11,5 +11,5 @@ URL: https://github.com/storopoli/FactorAssumptions
 LazyData: true
 Depends: R (>= 3.1.0), MASS, psych, nFactors
 RoxygenNote: 6.1.1
-Suggests: 
-    testthat
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
