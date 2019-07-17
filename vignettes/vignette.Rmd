@@ -19,7 +19,7 @@ Set of Assumptions for Factor and Principal Component Analysis
 
 Description:Tests for Kaiser-Meyer-Olkin (KMO) and Communalities in a dataset. It provides a final sample by removing variables in a iterable manner while keeping account of the variables that were removed in each step.
 
-First we will load a sample dataset `bfi` from `psych` and load the package `FactorAssumptions`
+First we will load an example dataset `bfi` from `psych` and load the package `FactorAssumptions`
 
 ```{r bfi}
 library(FactorAssumptions, quietly = T, verbose = F)
@@ -69,11 +69,16 @@ how_many_factors(bfi_data)
 
 Since the output of the `how_many_factors` suggest seven factors we will then perform the assumptions for all $individual communalities > 0.5$ with the argument `nfactors` set to 7.
 
+We can use either the values `principal` or `fa` functions from `psych` package for argument `type` as desired:
+
+* `principal` will perform a *Principal Component Analysis* (PCA)
+* `fa` will perform a *Factor Analysis*
+
 *Note*: we are using the `df` generated from the `kmo_optimal_solution` function
-*Note 2*: the default of rotation employed by the `communalities_optimal_solution` is `varimax`
+*Note 2*: the default of rotation employed by the `communalities_optimal_solution` is `varimax`. You can change if you want.
 
 ```{r communalities}
-comm_bfi <- communalities_optimal_solution(kmo_bfi$df, nfactors = 7)
+comm_bfi <- communalities_optimal_solution(kmo_bfi$df, type = "principal", nfactors = 7)
 ```
 
 Note that the `communalities_optimal_solution` outputs a list:
@@ -81,7 +86,7 @@ Note that the `communalities_optimal_solution` outputs a list:
 1. the final solution as `df`
 2. removed variables with $invidual communalities < 0.5$ as `removed`
 3. A table with the communalities loadings from the variables final iteration as `loadings`
-4. Results of the final iteration of the `principal` function from `psych` package as `pca_results`
+4. Results of the final iteration of either the `principal` or `fa` functions from `psych` package as `results`
 
 In our case 3 variables were removed in an iterable fashion due to low individual communality values. And they are listed from the lowest communality that were removed until rendered an optimal solution.
 
@@ -92,5 +97,5 @@ comm_bfi$removed
 And finally we arrive at our final principal components analysis rotated matrix. You can export it as a csv with `write.csv` or `write.csv2`
 
 ```{r final_solution}
-comm_bfi$pca_results
+comm_bfi$results
 ```

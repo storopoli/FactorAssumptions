@@ -21,8 +21,3 @@ I encourage you to check the [vignette](vignettes/vignette.Rmd) on how to use th
 # Author
 Jose Eduardo Storopoli
 [e-mail](mailto:thestoropoli@gmail.com)
-
-# Road Map
-- Make an argument for `Communalities` function to work either with *Principal Components Analysis* and *Factor Analysis*
-	- Also care for the factoring method argument `fm`
-- Make a *Vignette*

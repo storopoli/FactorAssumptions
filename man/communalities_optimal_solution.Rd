@@ -4,29 +4,35 @@
 \alias{communalities_optimal_solution}
 \title{Calculates the Optimal Solution for Communalities in a Dataframe}
 \usage{
-communalities_optimal_solution(df, nfactors, rotate = "varimax")
+communalities_optimal_solution(df, nfactors, type, rotate = "varimax",
+  fm = "minres")
 }
 \arguments{
 \item{df}{a dataframe with only \code{int} or \code{num} type of variables}
 
 \item{nfactors}{number of factors to extract in principal components or factor analysis}
 
-\item{rotate}{rotation to be employed (default is varimax)}
+\item{type}{either \code{principal} for \emph{Principal Components Analysis} or \code{fa} for \emph{Factor Analysis}}
+
+\item{rotate}{rotation to be employed (default is \emph{varimax}). "none", "varimax", "quartimax", "bentlerT", "equamax", "varimin", "geominT" and "bifactor" are orthogonal rotations. "Promax", "promax", "oblimin", "simplimax", "bentlerQ, "geominQ" and "biquartimin" and "cluster" are possible oblique transformations of the solution. The default is to do a oblimin transformation, although versions prior to 2009 defaulted to varimax. SPSS seems to do a Kaiser normalization before doing Promax, this is done here by the call to "promax" which does the normalization before calling Promax in GPArotation.}
+
+\item{fm}{Factoring method fm="minres" (default) will do a minimum residual as will fm="uls". Both of these use a first derivative. fm="ols" differs very slightly from "minres" in that it minimizes the entire residual matrix using an OLS procedure but uses the empirical first derivative. This will be slower. fm="wls" will do a weighted least squares (WLS) solution, fm="gls" does a generalized weighted least squares (GLS), fm="pa" will do the principal factor solution, fm="ml" will do a maximum likelihood factor analysis. fm="minchi" will minimize the sample size weighted chi square when treating pairwise correlations with different number of subjects per pair. fm ="minrank" will do a minimum rank factor analysis. "old.min" will do minimal residual the way it was done prior to April, 2017 (see discussion below). fm="alpha" will do alpha factor analysis as described in Kaiser and Coffey (1965)}
 }
 \value{
 A list with \enumerate{
 \item \code{df} - A dataframe that has reached its optimal solution in terms of KMO values
 \item \code{removed} - A list of removed variables ordered by the first to last removed during the procedure
 \item \code{loadings} - A table with the communalities loadings from the variables final iteration
-\item \code{pca_results} - Results of the final iteration of the \code{\link{principal}} function from \code{psych} package
+\item \code{results} - Results of the final iteration of either the \code{\link[psych]{principal}} or \code{\link[psych]{fa}} functions from \code{psych} package
 }
 }
 \description{
-\code{communalities_optimal_solution()} call upon the \code{\link[psych]{principal}} function from \code{psych} package to iterate over the variables of a dataframe.
+\code{communalities_optimal_solution()} call upon either the \code{\link[psych]{principal}} or \code{\link[psych]{fa}} functions from \code{psych} package to iterate over the variables of a dataframe.
 }
 \details{
 If finds any individual communality below the optimal value of 0.5 then removes the lowest communality value variable until no more variable has not-optimal communality values.
 }
 \seealso{
-\code{\link[psych]{principal}}
+\code{\link[psych]{principal}} the PCA function from psych and
+\code{\link[psych]{fa}} the Factor Analysis function from psych
 }
