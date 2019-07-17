@@ -18,7 +18,6 @@
 #'}
 #'
 #' @import psych
-#' @import GPArotation
 #'
 #' @importFrom graphics plot
 #'
