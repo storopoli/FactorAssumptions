@@ -16,6 +16,10 @@ install.packages("FactorAssumptions")
 devtools::install_github("storopoli/FactorAssumptions")
 ```
 
+## Vignette
+
+I encourage you to take a loot at the [vignette](doc/vignette.html)
+
 # Author
 Jose Eduardo Storopoli
 [e-mail](mailto:thestoropoli@gmail.com)
@@ -23,4 +27,3 @@ Jose Eduardo Storopoli
 # Road Map
 - Make an argument for `Communalities` function to work either with *Principal Components Analysis* and *Factor Analysis*
 	- Also care for the factoring method argument `fm`
-- Make a *Vignette*
