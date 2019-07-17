@@ -1,0 +1,96 @@
+---
+title: "How to use FactorAssumptions"
+author: "Jose Eduardo Storopoli"
+date: "7/16/2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How to use FactorAssumptions}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{FactorAssumptions}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## FactorAssumptions
+
+Set of Assumptions for Factor and Principal Component Analysis
+
+Description:Tests for Kaiser-Meyer-Olkin (KMO) and Communalities in a dataset. It provides a final sample by removing variables in a iterable manner while keeping account of the variables that were removed in each step.
+
+First we will load a sample dataset `bfi` from `psych` and load the package `FactorAssumptions`
+
+```{r bfi}
+library(FactorAssumptions, quietly = T, verbose = F)
+bfi_data <- bfi
+#Remove rows with missing values and keep only complete cases
+bfi_data <- bfi_data[complete.cases(bfi_data),]
+head(bfi_data)
+```
+
+## Performing the KMO Assumptions
+
+First we will perform the $KMO > 0.5 assumption$ for all individuals variables in the dataset with the `kmo_optimal_solution` function
+
+```{r KMO}
+kmo_bfi <- kmo_optimal_solution(bfi_data)
+```
+
+Note that the `kmo_optimal_solution` outputs a list:
+
+1. the final solution as `df`
+2. removed variables with $invidual KMO < 0.5$ as `removed`
+3. Anti-image covariance matrix as `AIS`
+4. Anti-image correlation matrix as `AIR`
+
+In our case none of the variables were removed due to low individual KMO values
+
+```{r removed_kmo}
+kmo_bfi$removed
+```
+
+## Determining how many factors to extract
+
+Now let's use the function `how_many_factors` to determine how many factors to retain based on:
+
+* Eigenvalues
+* Parallel Analysis
+* Optimal Coordinates
+* Acceleration Factor
+
+*Note*: it will generate a 1,000 replications as default for the Paralle Analysis, so maybe it will take a while to run.
+
+```{r how_many_factors}
+how_many_factors(bfi_data)
+```
+
+## Performing the Communalities Assumptions
+
+Since the output of the `how_many_factors` suggest seven factors we will then perform the assumptions for all $individual communalities > 0.5$ with the argument `nfactors` set to 7.
+
+*Note*: we are using the `df` generated from the `kmo_optimal_solution` function
+*Note 2*: the default of rotation employed by the `communalities_optimal_solution` is `varimax`
+
+```{r communalities}
+comm_bfi <- communalities_optimal_solution(kmo_bfi$df, nfactors = 7)
+```
+
+Note that the `communalities_optimal_solution` outputs a list:
+
+1. the final solution as `df`
+2. removed variables with $invidual communalities < 0.5$ as `removed`
+3. A table with the communalities loadings from the variables final iteration as `loadings`
+4. Results of the final iteration of the `principal` function from `psych` package as `pca_results`
+
+In our case 3 variables were removed in an iterable fashion due to low individual communality values. And they are listed from the lowest communality that were removed until rendered an optimal solution.
+
+```{r removed_comm}
+comm_bfi$removed
+```
+
+And finally we arrive at our final principal components analysis rotated matrix. You can export it as a csv with `write.csv` or `write.csv2`
+
+```{r final_solution}
+comm_bfi$pca_results
+```
