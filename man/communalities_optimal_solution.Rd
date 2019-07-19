@@ -32,6 +32,10 @@ A list with \enumerate{
 \details{
 If finds any individual communality below the optimal value of 0.5 then removes the lowest communality value variable until no more variable has not-optimal communality values.
 }
+\examples{
+\dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}communalities_optimal_solution(df, nfactors = 2,type = "principal")
+
+}
 \seealso{
 \code{\link[psych]{principal}} the PCA function from psych and
 \code{\link[psych]{fa}} the Factor Analysis function from psych

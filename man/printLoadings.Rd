@@ -22,6 +22,9 @@ printLoadings(x, digits = 3, cutoff = 0.4, sort = TRUE, ...)
 Helper function for printing rotated component matrix
 Function to get a rotated component matrix from a factor analysis in psych while sorting and cutoff
 }
+\examples{
+\dontrun{printLoadings(fa.fit, digits = 3, cutoff = 0.4, sort = TRUE)}
+}
 \seealso{
-taken from: https://stackoverflow.com/questions/12114440/how-do-i-export-a-sorted-factor-loading-table
+taken from: \href{https://stackoverflow.com/questions/12114440/how-do-i-export-a-sorted-factor-loading-table}{StackOverflow}
 }

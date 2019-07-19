@@ -8,9 +8,9 @@
 #' @param ... etc
 #'
 #' @importFrom utils getS3method
-#'
+#' @examples \dontrun{printLoadings(fa.fit, digits = 3, cutoff = 0.4, sort = TRUE)}
 #' @seealso
-#' taken from: https://stackoverflow.com/questions/12114440/how-do-i-export-a-sorted-factor-loading-table
+#' taken from: \href{https://stackoverflow.com/questions/12114440/how-do-i-export-a-sorted-factor-loading-table}{StackOverflow}
 #' @export
 
 printLoadings <- function (x, digits = 3, cutoff = 0.4, sort = TRUE, ...)

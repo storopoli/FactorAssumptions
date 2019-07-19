@@ -1,9 +1,16 @@
+# FactorAssumptions 1.0.4
+
+July, 19th 2019
+
+* Added examples to functions' documentation
+* Added Hair Multivariate Analysis citation to the DESCRIPTION for the best practices and assumptions
+
+
 # FactorAssumptions 1.0.3
 
 July, 17th 2019
 
 * Added `type` argument to `communalities_optimal_solution` function to either call upon `principal` or `fa` functions from `psych` package for *Principal Components Analysis* (PCA) or *Factor Analysis*
-
 * Added `fm` argument to `communalities_optimal_solution` function to complement the possibility of it performing a *Factor Analysis*
 
 

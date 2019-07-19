@@ -25,6 +25,10 @@ Determine how many factors to retain based on:
 \item{Acceleration Factor}
 }
 }
+\examples{
+\dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}how_many_factors(df)
+
+}
 \seealso{
 \link[nFactors]{plotnScree}
 }

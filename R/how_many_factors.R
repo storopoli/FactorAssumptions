@@ -16,7 +16,9 @@
 #'
 #' @import nFactors
 #'
-#'@seealso
+#' @examples \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}how_many_factors(df)
+#'
+#' @seealso
 #' \link[nFactors]{plotnScree}
 #' @export
 

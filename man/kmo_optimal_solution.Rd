@@ -22,6 +22,10 @@ A list with \enumerate{
 \details{
 If finds any individual KMO's below the optimal value of 0.5 then removes the lowest KMO value variable until no more variable has not-optimal KMO values.
 }
+\examples{
+\dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}kmo_optimal_solution(df)
+
+}
 \seealso{
 \code{\link{kmo}} for kmo computation function
 }

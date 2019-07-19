@@ -2,6 +2,23 @@
 title: "How to use FactorAssumptions"
 author: "Jose Eduardo Storopoli"
 date: "7/16/2019"
+references:
+- id: hair2018
+  title: Multivariate data analysis
+  author:
+  - family: Hair
+    given: Joseph F.
+  - family: Black
+    given: William C.
+  - family: Babin
+    given: Barry J.
+  - family: Anderson
+    given: Rolph E.
+  edition: 8th ed.
+  publisher: Cengage Learning
+  type: book
+  issued:
+    year: 2018
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{How to use FactorAssumptions}
@@ -13,15 +30,25 @@ vignette: >
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## FactorAssumptions
+# FactorAssumptions
 
 Set of Assumptions for Factor and Principal Component Analysis
 
-Description:Tests for Kaiser-Meyer-Olkin (KMO) and Communalities in a dataset. It provides a final sample by removing variables in a iterable manner while keeping account of the variables that were removed in each step.
+Description:Tests for Kaiser-Meyer-Olkin (KMO) and communalities in a dataset. It provides a final sample by removing variables in a iterable manner while keeping account of the variables that were removed in each step.
+
+## What is KMO and Communalities?
+
+*Factor Analysis* and *Principal Components Analysis* (PCA) have some precautions and assumptions to be observed (@hair2018). 
+
+The first one is the KMO (Kaiser-Meyer-Olkin) measure, which measures the proportion of variance among the variables that can be derived from the common variance, also called systematic variance. KMO is computed between 0 and 1. Low values (close to 0) indicate that there are large partial correlations in comparison to the sum of the correlations, that is, there is a predominance of correlations of the variables that are problematic for the factorial/principal component analysis. @hair2018 suggest that individual KMOs smaller than 0.5 be removed from the factorial/principal component analysis. Consequently, this removal causes the overall KMO of the remaining variables of the factor/principal component analysis to be greater than 0.5.
+
+The second assumption of a valid factor or PCA analysis is the communality of the rotated variables. The commonalities indicate the common variance shared by factors/components with certain variables. Greater communality indicated that a greater amount of variance in the variable was extracted by the factorial/principal component solution. For a better measurement of factorial/principal component analysis, communalities should be 0.5 or greater (@hair2018).
+
+## Loading an example dataset
 
 First we will load an example dataset `bfi` from `psych` and load the package `FactorAssumptions`
 
-```{r bfi}
+```{r bfi, message=FALSE}
 library(FactorAssumptions, quietly = T, verbose = F)
 bfi_data <- bfi
 #Remove rows with missing values and keep only complete cases
@@ -59,7 +86,7 @@ Now let's use the function `how_many_factors` to determine how many factors to r
 * Optimal Coordinates
 * Acceleration Factor
 
-*Note*: it will generate a 1,000 replications as default for the Paralle Analysis, so maybe it will take a while to run.
+*Note*: it will generate a 1,000 replications as default for the Parallel Analysis, so maybe it will take a while to run.
 
 ```{r how_many_factors}
 how_many_factors(bfi_data)
@@ -94,8 +121,11 @@ In our case 3 variables were removed in an iterable fashion due to low individua
 comm_bfi$removed
 ```
 
-And finally we arrive at our final principal components analysis rotated matrix. You can export it as a csv with `write.csv` or `write.csv2`
+And finally we arrive at our final principal components analysis rotated matrix. You can export it as a CSV with `write.csv` or `write.csv2`
 
 ```{r final_solution}
 comm_bfi$results
 ```
+# References
+
+
