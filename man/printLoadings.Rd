@@ -18,13 +18,14 @@ printLoadings(x, digits = 3, cutoff = 0.4, sort = TRUE, ...)
 
 \item{...}{etc}
 }
+\value{
+A matrix or dataframe that can be exported as a CSV file with \code{\link[utils]{write.table}}
+}
 \description{
 Helper function for printing rotated component matrix
 Function to get a rotated component matrix from a factor analysis in psych while sorting and cutoff
 }
 \examples{
 \dontrun{printLoadings(fa.fit, digits = 3, cutoff = 0.4, sort = TRUE)}
-}
-\seealso{
-taken from: \href{https://stackoverflow.com/questions/12114440/how-do-i-export-a-sorted-factor-loading-table}{StackOverflow}
+
 }

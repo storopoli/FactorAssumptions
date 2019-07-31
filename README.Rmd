@@ -21,12 +21,15 @@ references:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  eval = TRUE
 )
+options(width = 100)
 ```
 # FactorAssumptions 
 
@@ -36,13 +39,20 @@ Set of Assumptions for Factor and Principal Component Analysis.
 Tests for Kaiser-Meyer-Olkin (KMO) and Communalities in a dataset. It provides a final sample by removing variables in a iterable manner while keeping account of the variables that were removed in each step.
 
 ## Installation
+You can install the released version of FactorAssumptions from [CRAN](https://CRAN.R-project.org/package=FactorAssumptions) with:
 
-```r
-# Install FactorAssumptions from CRAN
+```{r, eval=FALSE}
 install.packages("FactorAssumptions")
+```
 
-# Or the development version from GitHub:
-# install.packages("devtools")
+or install the development version from [Github](https://github.com/storopoli/FactorAssumptions) with:
+
+```{r install, eval=FALSE}
+## install devtools if not already
+if (!requireNamespace("devtools", quietly = TRUE)) {
+  install.packages("devtools")
+}
+## install tidyversity from Github
 devtools::install_github("storopoli/FactorAssumptions")
 ```
 

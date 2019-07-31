@@ -7,10 +7,12 @@
 #' @param sort binary True or False
 #' @param ... etc
 #'
+#' @return A matrix or dataframe that can be exported as a CSV file with \code{\link[utils]{write.table}}
+#'
 #' @importFrom utils getS3method
+#'
 #' @examples \dontrun{printLoadings(fa.fit, digits = 3, cutoff = 0.4, sort = TRUE)}
-#' @seealso
-#' taken from: \href{https://stackoverflow.com/questions/12114440/how-do-i-export-a-sorted-factor-loading-table}{StackOverflow}
+#'
 #' @export
 
 printLoadings <- function (x, digits = 3, cutoff = 0.4, sort = TRUE, ...)

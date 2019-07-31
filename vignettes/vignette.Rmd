@@ -77,24 +77,9 @@ In our case none of the variables were removed due to low individual KMO values
 kmo_bfi$removed
 ```
 
-## Determining how many factors to extract
-
-Now let's use the function `how_many_factors` to determine how many factors to retain based on:
-
-* Eigenvalues
-* Parallel Analysis
-* Optimal Coordinates
-* Acceleration Factor
-
-*Note*: it will generate a 1,000 replications as default for the Parallel Analysis, so maybe it will take a while to run.
-
-```{r how_many_factors}
-how_many_factors(bfi_data)
-```
-
 ## Performing the Communalities Assumptions
 
-Since the output of the `how_many_factors` suggest seven factors we will then perform the assumptions for all $individual communalities > 0.5$ with the argument `nfactors` set to 7.
+The dataset `bfi` suggests seven factors we will then perform the assumptions for all $individual communalities > 0.5$ with the argument `nfactors` set to 7.
 
 We can use either the values `principal` or `fa` functions from `psych` package for argument `type` as desired:
 

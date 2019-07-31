@@ -12,12 +12,22 @@ account of the variables that were removed in each step.
 
 ## Installation
 
-``` r
-# Install FactorAssumptions from CRAN
-install.packages("FactorAssumptions")
+You can install the released version of FactorAssumptions from
+[CRAN](https://CRAN.R-project.org/package=FactorAssumptions) with:
 
-# Or the development version from GitHub:
-# install.packages("devtools")
+``` r
+install.packages("FactorAssumptions")
+```
+
+or install the development version from
+[Github](https://github.com/storopoli/FactorAssumptions) with:
+
+``` r
+## install devtools if not already
+if (!requireNamespace("devtools", quietly = TRUE)) {
+  install.packages("devtools")
+}
+## install tidyversity from Github
 devtools::install_github("storopoli/FactorAssumptions")
 ```
 

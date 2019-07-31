@@ -4,12 +4,12 @@ Title: Set of Assumptions for Factor and Principal Component
     Analysis
 Version: 1.0.4
 Authors@R: person("Jose", "Storopoli", role = c("aut", "cre"), email = "thestoropoli@gmail.com", comment = c(ORCID = "0000-0002-0559-5176"))
-Maintainer: Jose Eduardo Storopoli <thestoropoli@gmail.com>
+Maintainer: Jose Storopoli <thestoropoli@gmail.com>
 Description: Tests for Kaiser-Meyer-Olkin (KMO) and
     communalities in a dataset. It provides a final sample by removing
     variables in a iterable manner while keeping account of the variables
     that were removed in each step. It follows the best practices and assumptions according to
-    Hair, Black, Babin & Anderson (2018, ISBN:9781473756540)
+    Hair, Black, Babin & Anderson (2018, ISBN:9781473756540).
 License: GPL-3
 URL: https://github.com/storopoli/FactorAssumptions
 BugReports:
@@ -17,8 +17,7 @@ BugReports:
 Depends:
     R (>= 3.1.0),
     MASS,
-    psych,
-    nFactors
+    psych
 Suggests:
     knitr,
     rmarkdown,

@@ -22,7 +22,7 @@
 #' @importFrom graphics plot
 #'
 #' @examples
-#' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}communalities_optimal_solution(df, nfactors = 2,type = "principal")
+#' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}\donttest{communalities_optimal_solution(df, nfactors = 2,type = "principal")}
 #'
 #' @seealso
 #' \code{\link[psych]{principal}} the PCA function from psych and
