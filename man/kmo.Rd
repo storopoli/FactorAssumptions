@@ -4,10 +4,12 @@
 \alias{kmo}
 \title{Calculates the Kayser-Meyer-Olkin (KMO)}
 \usage{
-kmo(x)
+kmo(x, squared = TRUE)
 }
 \arguments{
 \item{x}{a matrix or dataframe}
+
+\item{squared}{TRUE if matrix is squared (such as adjacency matrices), FALSE otherwise}
 }
 \value{
 A list with \enumerate{

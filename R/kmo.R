@@ -3,6 +3,7 @@
 #' \code{kmo()} handles both positive definite and not-positive definite matrix by employing the \emph{Moore-Penrose} inverse (pseudoinverse)
 #'
 #' @param x a matrix or dataframe
+#' @param squared TRUE if matrix is squared (such as adjacency matrices), FALSE otherwise
 #' @return A list with \enumerate{
 #' \item \code{overall} - Overall KMO value
 #' \item \code{individual} - Individual KMO's dataframe
@@ -17,8 +18,16 @@
 #' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}\donttest{kmo(df)}
 #' @export
 
-kmo = function(x){
-  X <- cor(as.matrix(x))
+kmo = function(x, squared = TRUE){
+  if (squared == TRUE) {
+    rownames(x) <- colnames(x)
+    # checking for sd = 0 and removing row and col
+    x <- x[!sapply(x, function(x) { sd(x) == 0} ), !sapply(x, function(x) { sd(x) == 0} )]
+    X <- cor(as.matrix(x))
+  }
+  else {
+    X <- cor(as.matrix(x))
+  }
   iX <- ginv(X)
   S2 <- diag(diag((iX^-1)))
   AIS <- S2%*%iX%*%S2                      # anti-image covariance matrix

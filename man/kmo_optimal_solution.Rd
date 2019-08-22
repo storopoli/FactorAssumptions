@@ -4,10 +4,12 @@
 \alias{kmo_optimal_solution}
 \title{Calculates the Optimal Solution for Kayser-Meyer-Olkin (KMO) in a Dataframe}
 \usage{
-kmo_optimal_solution(df)
+kmo_optimal_solution(df, squared = TRUE)
 }
 \arguments{
 \item{df}{a dataframe with only \code{int} or \code{num} type of variables}
+
+\item{squared}{TRUE if matrix is squared (such as adjacency matrices), FALSE otherwise}
 }
 \value{
 A list with \enumerate{
