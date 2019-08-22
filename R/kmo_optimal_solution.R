@@ -18,17 +18,20 @@
 #' \code{\link{kmo}} for kmo computation function
 #' @export
 
-kmo_optimal_solution <- function(df, squared = TRUE){
+kmo_optimal_solution <- function(df, squared=TRUE){
   removed <- c()
-  results <- kmo(df, squared = squared)
+  results <- kmo(df, squared=squared)
   while (any(results$individual < 0.5)){
     column <- sprintf(rownames(results$individual)[which.min(apply(results$individual,MARGIN=1,min))])
     removed <- c(removed, column)
-    df <- df[!(rownames(df) %in% column), !(colnames(df) %in% column), drop=FALSE]
     if (squared == TRUE) {
       rownames(df) <- colnames(df)
+      df <- df[!(rownames(df) %in% column), !(colnames(df) %in% column), drop=FALSE]
+      rownames(df) <- colnames(df)
     }
-    rownames(df) <- colnames(df)
+    else {
+      df <- df[, !(colnames(df) %in% column), drop=FALSE]
+    }
     results <- kmo(df, squared = squared)
   }
   return(list(

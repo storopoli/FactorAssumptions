@@ -61,7 +61,7 @@ head(bfi_data)
 First we will perform the $KMO > 0.5 assumption$ for all individuals variables in the dataset with the `kmo_optimal_solution` function
 
 ```{r KMO}
-kmo_bfi <- kmo_optimal_solution(bfi_data)
+kmo_bfi <- kmo_optimal_solution(bfi_data, squared = FALSE)
 ```
 
 Note that the `kmo_optimal_solution` outputs a list:
@@ -90,7 +90,7 @@ We can use either the values `principal` or `fa` functions from `psych` package 
 *Note 2*: the default of rotation employed by the `communalities_optimal_solution` is `varimax`. You can change if you want.
 
 ```{r communalities}
-comm_bfi <- communalities_optimal_solution(kmo_bfi$df, type = "principal", nfactors = 7)
+comm_bfi <- communalities_optimal_solution(kmo_bfi$df, type = "principal", nfactors = 7, squared = FALSE)
 ```
 
 Note that the `communalities_optimal_solution` outputs a list:

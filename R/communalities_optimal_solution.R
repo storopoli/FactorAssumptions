@@ -9,6 +9,7 @@
 #' @param nfactors number of factors to extract in principal components or factor analysis
 #' @param rotate rotation to be employed (default is \emph{varimax}). "none", "varimax", "quartimax", "bentlerT", "equamax", "varimin", "geominT" and "bifactor" are orthogonal rotations. "Promax", "promax", "oblimin", "simplimax", "bentlerQ, "geominQ" and "biquartimin" and "cluster" are possible oblique transformations of the solution. The default is to do a oblimin transformation, although versions prior to 2009 defaulted to varimax. SPSS seems to do a Kaiser normalization before doing Promax, this is done here by the call to "promax" which does the normalization before calling Promax in GPArotation.
 #' @param fm Factoring method fm="minres" (default) will do a minimum residual as will fm="uls". Both of these use a first derivative. fm="ols" differs very slightly from "minres" in that it minimizes the entire residual matrix using an OLS procedure but uses the empirical first derivative. This will be slower. fm="wls" will do a weighted least squares (WLS) solution, fm="gls" does a generalized weighted least squares (GLS), fm="pa" will do the principal factor solution, fm="ml" will do a maximum likelihood factor analysis. fm="minchi" will minimize the sample size weighted chi square when treating pairwise correlations with different number of subjects per pair. fm ="minrank" will do a minimum rank factor analysis. "old.min" will do minimal residual the way it was done prior to April, 2017 (see discussion below). fm="alpha" will do alpha factor analysis as described in Kaiser and Coffey (1965)
+#' @param squared TRUE if matrix is squared (such as adjacency matrices), FALSE otherwise
 #'
 #' @return A list with \enumerate{
 #' \item \code{df} - A dataframe that has reached its optimal solution in terms of KMO values
@@ -29,7 +30,7 @@
 #' \code{\link[psych]{fa}} the Factor Analysis function from psych
 #' @export
 
-communalities_optimal_solution <- function(df, nfactors, type, rotate="varimax", fm="minres"){
+communalities_optimal_solution <- function(df, nfactors, type, rotate="varimax", fm="minres", squared=TRUE){
   removed <- c()
   if (type == "principal"){
     results <- principal(df, nfactors = nfactors, rotate = rotate, scores = T)
@@ -39,7 +40,13 @@ communalities_optimal_solution <- function(df, nfactors, type, rotate="varimax",
             min(as.data.frame(results$communality)))
       column <- sprintf(rownames(as.data.frame(results$communality))[which.min(apply(as.data.frame(results$communality),MARGIN=1,min))])
       removed <- c(removed, column)
-      df <- df[, !(colnames(df) %in% column), drop=FALSE]
+      if (squared == TRUE) {
+        rownames(df) <- colnames(df)
+        df <- df[!(rownames(df) %in% column), !(colnames(df) %in% column), drop=FALSE]
+      }
+      else {
+        df <- df[, !(colnames(df) %in% column), drop=FALSE]
+      }
       results <- principal(df, nfactors = nfactors, scores = T)
       }
   }
@@ -51,7 +58,14 @@ communalities_optimal_solution <- function(df, nfactors, type, rotate="varimax",
               min(as.data.frame(results$communality)))
       column <- sprintf(rownames(as.data.frame(results$communality))[which.min(apply(as.data.frame(results$communality),MARGIN=1,min))])
       removed <- c(removed, column)
-      df <- df[, !(colnames(df) %in% column), drop=FALSE]
+      if (squared == TRUE) {
+        rownames(df) <- colnames(df)
+        df <- df[!(rownames(df) %in% column), !(colnames(df) %in% column), drop=FALSE]
+        rownames(df) <- colnames(df)
+      }
+      else {
+        df <- df[, !(colnames(df) %in% column), drop=FALSE]
+      }
       results <- fa(df, fm = fm, nfactors = nfactors, scores = T)
     }
   }

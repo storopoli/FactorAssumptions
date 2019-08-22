@@ -18,7 +18,7 @@
 #' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}\donttest{kmo(df)}
 #' @export
 
-kmo = function(x, squared = TRUE){
+kmo = function(x, squared=TRUE){
   if (squared == TRUE) {
     rownames(x) <- colnames(x)
     # checking for sd = 0 and removing row and col

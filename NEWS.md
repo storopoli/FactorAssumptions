@@ -1,3 +1,9 @@
+# FactorAssumptions 1.1.1
+
+August, 22th 2019
+
+* Added argument squared to `kmo_optimal_solution` and `communalities_optimal_solution` functions. They are used to squared matrices such as adjacency matrices and other bibliometric co-occurrence matrices.
+
 # FactorAssumptions 1.0.4
 
 July, 19th 2019
