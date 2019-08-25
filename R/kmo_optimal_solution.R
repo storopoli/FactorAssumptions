@@ -20,6 +20,7 @@
 
 kmo_optimal_solution <- function(df, squared=TRUE){
   removed <- c()
+  df <- as.data.frame(df)
   results <- kmo(df, squared=squared)
   while (any(results$individual < 0.5)){
     column <- sprintf(rownames(results$individual)[which.min(apply(results$individual,MARGIN=1,min))])

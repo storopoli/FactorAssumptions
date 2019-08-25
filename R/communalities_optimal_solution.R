@@ -32,6 +32,7 @@
 
 communalities_optimal_solution <- function(df, nfactors, type, rotate="varimax", fm="minres", squared=TRUE){
   removed <- c()
+  df <- as.data.frame(df)
   if (type == "principal"){
     results <- principal(df, nfactors = nfactors, rotate = rotate, scores = T)
     while (any(as.data.frame(as.data.frame(results$communality)) < 0.5)){
