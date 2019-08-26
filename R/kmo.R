@@ -15,7 +15,7 @@
 #' @importFrom stats cor
 #'
 #' @examples
-#' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}\donttest{kmo(df)}
+#' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}\donttest{kmo(df, squared = TRUE)}
 #' @export
 
 kmo = function(x, squared=TRUE){

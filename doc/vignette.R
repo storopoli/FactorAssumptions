@@ -8,6 +8,9 @@ bfi_data <- bfi
 bfi_data <- bfi_data[complete.cases(bfi_data),]
 head(bfi_data)
 
+## ----How Many Factors----------------------------------------------------
+screePlotAPA(bfi_data, rep=1000, quantile=.05, model = "components")
+
 ## ----KMO-----------------------------------------------------------------
 kmo_bfi <- kmo_optimal_solution(bfi_data, squared = FALSE)
 

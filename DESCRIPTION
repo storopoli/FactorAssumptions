@@ -17,7 +17,8 @@ BugReports:
 Depends:
     R (>= 3.1.0),
     MASS,
-    psych
+    psych,
+    ggplot2
 Suggests:
     knitr,
     rmarkdown,

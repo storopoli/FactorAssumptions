@@ -56,6 +56,13 @@ bfi_data <- bfi_data[complete.cases(bfi_data),]
 head(bfi_data)
 ```
 
+## How many factors?
+
+This is a frequent question. You can use the **Parallel Analysis**. The logic underlying this approach is that the magnitude of the eigenvalue for the last retained factor should exceed an eigenvalue obtained from random data under otherwise comparable conditions. In other words, in a real study involving the factor analysis of, say, 20 variables measured on 500 people, the eigenvalue of any retained factor should be greater than the corresponding eigenvalue obtained from randomly generated data arranged to represent 20 variables measured on 500 people. We generally use a representative value (e.g., the 95% percentile).
+```{r How Many Factors}
+screePlotAPA(bfi_data, rep=1000, quantile=.05, model = "components")
+```
+
 ## Performing the KMO Assumptions
 
 First we will perform the $KMO > 0.5 assumption$ for all individuals variables in the dataset with the `kmo_optimal_solution` function
@@ -79,7 +86,7 @@ kmo_bfi$removed
 
 ## Performing the Communalities Assumptions
 
-The dataset `bfi` suggests seven factors we will then perform the assumptions for all $individual communalities > 0.5$ with the argument `nfactors` set to 7.
+The parallel analysis of `bfi` data suggests seven factors we will then perform the assumptions for all $individual communalities > 0.5$ with the argument `nfactors` set to 7.
 
 We can use either the values `principal` or `fa` functions from `psych` package for argument `type` as desired:
 

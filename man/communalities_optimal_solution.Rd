@@ -5,7 +5,7 @@
 \title{Calculates the Optimal Solution for Communalities in a Dataframe}
 \usage{
 communalities_optimal_solution(df, nfactors, type, rotate = "varimax",
-  fm = "minres")
+  fm = "minres", squared = TRUE)
 }
 \arguments{
 \item{df}{a dataframe with only \code{int} or \code{num} type of variables}
@@ -17,6 +17,8 @@ communalities_optimal_solution(df, nfactors, type, rotate = "varimax",
 \item{rotate}{rotation to be employed (default is \emph{varimax}). "none", "varimax", "quartimax", "bentlerT", "equamax", "varimin", "geominT" and "bifactor" are orthogonal rotations. "Promax", "promax", "oblimin", "simplimax", "bentlerQ, "geominQ" and "biquartimin" and "cluster" are possible oblique transformations of the solution. The default is to do a oblimin transformation, although versions prior to 2009 defaulted to varimax. SPSS seems to do a Kaiser normalization before doing Promax, this is done here by the call to "promax" which does the normalization before calling Promax in GPArotation.}
 
 \item{fm}{Factoring method fm="minres" (default) will do a minimum residual as will fm="uls". Both of these use a first derivative. fm="ols" differs very slightly from "minres" in that it minimizes the entire residual matrix using an OLS procedure but uses the empirical first derivative. This will be slower. fm="wls" will do a weighted least squares (WLS) solution, fm="gls" does a generalized weighted least squares (GLS), fm="pa" will do the principal factor solution, fm="ml" will do a maximum likelihood factor analysis. fm="minchi" will minimize the sample size weighted chi square when treating pairwise correlations with different number of subjects per pair. fm ="minrank" will do a minimum rank factor analysis. "old.min" will do minimal residual the way it was done prior to April, 2017 (see discussion below). fm="alpha" will do alpha factor analysis as described in Kaiser and Coffey (1965)}
+
+\item{squared}{TRUE if matrix is squared (such as adjacency matrices), FALSE otherwise}
 }
 \value{
 A list with \enumerate{
