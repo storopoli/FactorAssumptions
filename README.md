@@ -16,7 +16,7 @@ You can install the released version of FactorAssumptions from
 [CRAN](https://CRAN.R-project.org/package=FactorAssumptions) with:
 
 ``` r
-install.packages("FactorAssumptions")
+#install.packages("FactorAssumptions")
 ```
 
 or install the development version from
@@ -27,7 +27,7 @@ or install the development version from
 if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
-## install tidyversity from Github
+## install FactorAssumptions from Github
 devtools::install_github("storopoli/FactorAssumptions")
 ```
 

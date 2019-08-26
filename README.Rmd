@@ -42,7 +42,7 @@ Tests for Kaiser-Meyer-Olkin (KMO) and Communalities in a dataset. It provides a
 You can install the released version of FactorAssumptions from [CRAN](https://CRAN.R-project.org/package=FactorAssumptions) with:
 
 ```{r, eval=FALSE}
-install.packages("FactorAssumptions")
+#install.packages("FactorAssumptions")
 ```
 
 or install the development version from [Github](https://github.com/storopoli/FactorAssumptions) with:
@@ -52,7 +52,7 @@ or install the development version from [Github](https://github.com/storopoli/Fa
 if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
 }
-## install tidyversity from Github
+## install FactorAssumptions from Github
 devtools::install_github("storopoli/FactorAssumptions")
 ```
 
