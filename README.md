@@ -13,13 +13,6 @@ account of the variables that were removed in each step.
 ## Installation
 
 You can install the released version of FactorAssumptions from
-[CRAN](https://CRAN.R-project.org/package=FactorAssumptions) with:
-
-``` r
-#install.packages("FactorAssumptions")
-```
-
-or install the development version from
 [Github](https://github.com/storopoli/FactorAssumptions) with:
 
 ``` r
