@@ -35,7 +35,8 @@ A list with \enumerate{
 If finds any individual communality below the optimal value of 0.5 then removes the lowest communality value variable until no more variable has not-optimal communality values.
 }
 \examples{
-\dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}\donttest{communalities_optimal_solution(df, nfactors = 2,type = "principal")}
+\dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}
+\donttest{communalities_optimal_solution(df, nfactors = 2,type = "principal")}
 
 }
 \seealso{

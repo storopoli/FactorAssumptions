@@ -9,6 +9,18 @@
 #'
 #' @return \item{value}{ numeric: return a vector of eigenvalues }
 #'
+#' @importFrom stats cov
+#' @importFrom stats cor
+#' @importFrom stats cov2cor
+#'
+#' @examples
+#' \dontshow{set.seed(123); x   <- matrix(rnorm(1000),ncol=10);}
+#' \donttest{
+#' eigenComputes(x, cor=TRUE,  use="everything")
+#' eigenComputes(x, cor=FALSE, use="everything")
+#' eigenComputes(x, cor=TRUE,  use="everything", method="spearman")
+#' eigenComputes(x, cor=TRUE,  use="everything", method="kendall")
+#'}
 #' @export
 
 eigenComputes <-

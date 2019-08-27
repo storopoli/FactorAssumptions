@@ -26,6 +26,6 @@ Helper function for printing rotated component matrix
 Function to get a rotated component matrix from a factor analysis in psych while sorting and cutoff
 }
 \examples{
-\dontrun{printLoadings(fa.fit, digits = 3, cutoff = 0.4, sort = TRUE)}
+\donttest{printLoadings(fa.fit, digits = 3, cutoff = 0.4, sort = TRUE)}
 
 }

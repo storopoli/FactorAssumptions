@@ -40,6 +40,19 @@
 #' Horn, J. L. (1965). A rationale for the number of factors in factor analysis.  \emph{Psychometrika, 30}, 179-185.
 #' Kaiser, H. F. (1960). The application of electronic computer to factor analysis.  \emph{Educational and Psychological Measurement, 20}, 141-151.
 #'
+#' @importFrom stats lm
+#' @importFrom stats coef
+#'
+#' @examples
+#' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10))}
+#' \donttest{
+#' ev <- eigen(cor(df)) # get eigenvalues
+#' nS <- nScree(x=ev$values, aparallel=eig_pa, model = "components")
+#' eig <- ev$values # eigenvalues
+#' ap <- parallel(subject = nrow(df), var = ncol(df), rep = 1000, quantile = .05, model = "components")
+#' eig_pa <- ap$eigen$qevpea # The 95 quantile
+#' nS <- nScree(x = ev$values, aparallel = eig_pa, model = "components")
+#' }
 #' @export
 
 nScree <-

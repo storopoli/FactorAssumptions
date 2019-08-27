@@ -15,3 +15,7 @@ eigenFrom(x)
 \description{
 The \code{eigenFrom} function identifies the data type from which to obtain the eigenvalues. The function is used internally in many functions of the package to be able to apply these to a vector of eigenvalues, a matrix of correlations or covariance or a \code{data.frame}.
 }
+\examples{
+\dontshow{set.seed(123); x   <- matrix(rnorm(1000),ncol=10);}
+\donttest{eigenFrom(x)}
+}

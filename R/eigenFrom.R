@@ -6,6 +6,9 @@
 #'
 #' @return \item{value}{ character: return the data type to obtain the eigenvalues: \code{"eigenvalues"}, \code{"correlation"} or \code{"data"} }
 #'
+#' @examples
+#' \dontshow{set.seed(123); x   <- matrix(rnorm(1000),ncol=10);}
+#' \donttest{eigenFrom(x)}
 #' @export
 
 eigenFrom <-

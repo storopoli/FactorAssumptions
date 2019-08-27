@@ -47,6 +47,14 @@ mean, care must be taken with the number of replications (\code{rep}). In
 fact, the smaller the quantile (\code{quantile}), the bigger the number of
 necessary replications.
 }
+\examples{
+\dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}
+\donttest{
+ev <- eigen(cor(df)) # get eigenvalues
+eig <- ev$values # eigenvalues
+ap <- parallel(subject = nrow(df), var = ncol(df), rep = 1000, quantile = .05, model = "components")
+}
+}
 \references{
 Drasgow, F. and Lissak, R. (1983) Modified parallel analysis: a
 procedure for examining the latent dimensionality of dichotomously scored

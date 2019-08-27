@@ -41,6 +41,18 @@
 #'
 #' Horn, J. L. (1965). A rationale and test of the number of factors in factor
 #' analysis. \emph{Psychometrika, 30}, 179-185.
+#'
+#' @importFrom stats lm
+#' @importFrom stats dnorm
+#' @importFrom stats qnorm
+#'
+#' @examples
+#' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}
+#' \donttest{
+#' ev <- eigen(cor(df)) # get eigenvalues
+#' eig <- ev$values # eigenvalues
+#' ap <- parallel(subject = nrow(df), var = ncol(df), rep = 1000, quantile = .05, model = "components")
+#' }
 #' @export
 
 parallel <-

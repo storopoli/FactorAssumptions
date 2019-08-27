@@ -19,6 +19,11 @@ moreStats(x, quantile = 0.95, show = FALSE)
 \description{
 This function produces another summary of a \code{data.frame}. This function was proposed in order to apply some functions globally on a \code{data.frame}: \code{quantile}, \code{median}, \code{min} and \code{max}. The usual \emph{R} version cannot do so.
 }
+\examples{
+\dontshow{set.seed(123); x   <- matrix(rnorm(1000),ncol=10);}
+\donttest{results <- moreStats(x, quantile=0.05, show=TRUE)}
+
+}
 \seealso{
 \code{\link{nScree}}
 }

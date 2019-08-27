@@ -9,6 +9,13 @@
 #' @return \item{values}{ numeric: \code{data.frame} of statistics: mean, median, quantile, standard deviation, minimum and maximum. }
 #' @seealso \code{\link{nScree}}
 #'
+#' @importFrom stats sd
+#' @importFrom stats median
+#'
+#' @examples
+#' \dontshow{set.seed(123); x   <- matrix(rnorm(1000),ncol=10);}
+#' \donttest{results <- moreStats(x, quantile=0.05, show=TRUE)}
+#'
 #' @export
 
 moreStats <-

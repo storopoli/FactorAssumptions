@@ -48,6 +48,17 @@ The acceleration factor (\eqn{AF}) corresponds to a numerical solution to the el
 The optimal coordinates (\eqn{OC}) corresponds to an extrapolation of the preceeding eigenvalue by a regression line between the eigenvalue coordinates and the last eigenvalue coordinates: \deqn{n_{OC} = \sum_i
 \left[(\lambda_i \ge LS_i) \cap (\lambda_i \ge (\lambda_{i \ predicted}) \right].}
 }
+\examples{
+\dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10))}
+\donttest{
+ev <- eigen(cor(df)) # get eigenvalues
+nS <- nScree(x=ev$values, aparallel=eig_pa, model = "components")
+eig <- ev$values # eigenvalues
+ap <- parallel(subject = nrow(df), var = ncol(df), rep = 1000, quantile = .05, model = "components")
+eig_pa <- ap$eigen$qevpea # The 95 quantile
+nS <- nScree(x = ev$values, aparallel = eig_pa, model = "components")
+}
+}
 \references{
 Cattell, R. B. (1966). The scree test for the number of factors. \emph{Multivariate Behavioral Research, 1}, 245-276.
 Guttman, L. (1954). Some necessary conditions for common factor analysis. \emph{Psychometrika, 19, 149-162}.

@@ -21,3 +21,12 @@ eigenComputes(x, cor = TRUE, model = "components", ...)
 \description{
 The \code{eigenComputes} function computes eigenvalues from the identified data type. It is used internally in many functions o in order to apply these to a vector of eigenvalues, a matrix of correlations or covariance or a data frame.
 }
+\examples{
+\dontshow{set.seed(123); x   <- matrix(rnorm(1000),ncol=10);}
+\donttest{
+eigenComputes(x, cor=TRUE,  use="everything")
+eigenComputes(x, cor=FALSE, use="everything")
+eigenComputes(x, cor=TRUE,  use="everything", method="spearman")
+eigenComputes(x, cor=TRUE,  use="everything", method="kendall")
+}
+}

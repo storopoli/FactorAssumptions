@@ -22,5 +22,6 @@ APA-friendly plot of Parallel Analysis
 \code{screePlotAPA()} plots a friendly APA Scree Plot with the measured eigenvalues and the quantile of the eigenvalues distribution from a parallel analysis
 }
 \examples{
-\dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}\donttest{screePlotAPA(df)}
+\dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}
+\donttest{screePlotAPA(df, rep = 1000, quantile = .05, model = "components")}
 }

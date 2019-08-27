@@ -11,7 +11,7 @@
 #'
 #' @importFrom utils getS3method
 #'
-#' @examples \dontrun{printLoadings(fa.fit, digits = 3, cutoff = 0.4, sort = TRUE)}
+#' @examples \donttest{printLoadings(fa.fit, digits = 3, cutoff = 0.4, sort = TRUE)}
 #'
 #' @export
 

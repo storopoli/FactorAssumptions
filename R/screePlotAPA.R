@@ -10,24 +10,41 @@
 #'
 #' @import ggplot2
 #' @importFrom stats cor
+#' @importFrom stats median
+#' @importFrom stats sd
+#' @importFrom stats lm
+#' @importFrom stats dnorm
+#' @importFrom stats qnorm
+#' @importFrom graphics par
 #'
 #' @examples
-#' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}\donttest{screePlotAPA(df)}
+#' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}
+#' \donttest{screePlotAPA(df, rep = 1000, quantile = .05, model = "components")}
 #' @export
 
 screePlotAPA <- function(x, rep=1000, quantile=.05, model="components") {
   ev <- eigen(cor(x)) # get eigenvalues
   eig <- ev$values # eigenvalues
-  ap <- parallel(subject = nrow(x), var = ncol(x), rep = rep, quantile = quantile, model=model)
+  ap <- parallel(subject=nrow(x), var=ncol(x), rep=rep, quantile=quantile, model=model)
   eig_pa <- ap$eigen$qevpea # The 95 quantile
-  nS <- nScree(x=ev$values, aparallel=eig_pa, model = model)
+  nS <- nScree(x=ev$values, aparallel=eig_pa, model=model)
   xlab = "Components"
   ylab = "Eigenvalues"
   main = "Parallel Scree Test"
   df <- data.frame(eig, eig_pa)
   k <- 1:length(eig)
-  # Only plotting Factors to 25% of the sample size
-  n <- round(length(eig)/4)
+  if (length(eig) < 50) {
+    # Only plotting Factors to 50% of the sample size
+    n <- round(length(eig)/2)
+  }
+  else if (length(eig) > 50 & length(eig) < 1000) {
+    # Only plotting Factors to 33% of the sample size
+    n <- round(length(eig)/3)
+  }
+  else {
+    # Only plotting Factors to 25% of the sample size
+    n <- round(length(eig)/4)
+  }
   #APA theme
   apatheme = theme_bw() +
     theme(panel.grid.major = element_blank(),
@@ -60,6 +77,6 @@ screePlotAPA <- function(x, rep=1000, quantile=.05, model="components") {
     #Apply our apa-formatting theme
     apatheme
   # How many Factors?
-  cat("Parallel Analysis (n = ", nS$Components$nparallel, ")", sep = "")
+  message(sprintf("Parallel Analysis (n = "), nS$Components$nparallel, ")")
   return(p)
 }

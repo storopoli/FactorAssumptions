@@ -13,6 +13,7 @@
 #'
 #' @import MASS
 #' @importFrom stats cor
+#' @importFrom stats sd
 #'
 #' @examples
 #' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}\donttest{kmo(df, squared = TRUE)}
