@@ -1,8 +1,3 @@
-# FactorAssumption 2.0
-August, 26th 2019
-
-* Now you can plot beautiful APA Scree Plots of *Paralle Analysis* using eigenvalues from observed data vs quantiles o simulated data.
-
 # FactorAssumptions 1.1.1
 
 August, 22th 2019

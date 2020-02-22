@@ -16,11 +16,14 @@
 #' @importFrom stats sd
 #'
 #' @examples
-#' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}\donttest{kmo(df, squared = TRUE)}
+#' set.seed(123)
+#' df <- as.data.frame(matrix(rnorm(100*10, 1, .5), ncol=10))
+#' kmo(df, squared = FALSE)
 #' @export
 
 kmo = function(x, squared=TRUE){
   if (squared == TRUE) {
+    stopifnot(nrow (x) == ncol(x))
     rownames(x) <- colnames(x)
     # checking for sd = 0 and removing row and col
     x <- x[!sapply(x, function(x) { sd(x) == 0} ), !sapply(x, function(x) { sd(x) == 0} )]

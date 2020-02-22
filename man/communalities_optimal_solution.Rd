@@ -4,8 +4,14 @@
 \alias{communalities_optimal_solution}
 \title{Calculates the Optimal Solution for Communalities in a Dataframe}
 \usage{
-communalities_optimal_solution(df, nfactors, type, rotate = "varimax",
-  fm = "minres", squared = TRUE)
+communalities_optimal_solution(
+  df,
+  nfactors,
+  type,
+  rotate = "varimax",
+  fm = "minres",
+  squared = TRUE
+)
 }
 \arguments{
 \item{df}{a dataframe with only \code{int} or \code{num} type of variables}
@@ -35,8 +41,9 @@ A list with \enumerate{
 If finds any individual communality below the optimal value of 0.5 then removes the lowest communality value variable until no more variable has not-optimal communality values.
 }
 \examples{
-\dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}
-\donttest{communalities_optimal_solution(df, nfactors = 2,type = "principal")}
+set.seed(123)
+df <- as.data.frame(matrix(rnorm(100*10, 1, .5), ncol=10))
+communalities_optimal_solution(df, nfactors = 2,type = "principal", squared = FALSE)
 
 }
 \seealso{

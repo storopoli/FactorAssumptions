@@ -606,13 +606,20 @@ body {
 <p><a href="https://cran.r-project.org/package=FactorAssumptions"><img src="data:image/svg+xml; charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzEiIGhlaWdodD0iMjAiPgogIDxsaW5lYXJHcmFkaWVudCBpZD0iYiIgeDI9IjAiIHkyPSIxMDAlIj4KICAgIDxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2JiYiIgc3RvcC1vcGFjaXR5PSIuMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLW9wYWNpdHk9Ii4xIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8bWFzayBpZD0iYSI+CiAgICA8cmVjdCB3aWR0aD0iMTMxIiBoZWlnaHQ9IjIwIiByeD0iMyIgZmlsbD0iI2ZmZiIvPgogIDwvbWFzaz4KICA8ZyBtYXNrPSJ1cmwoI2EpIj4KICAgIDxwYXRoIGZpbGw9IiM1NTUiIGQ9Ik0wIDBoNDN2MjBIMHoiLz4KICAgIDxwYXRoIGZpbGw9IiNlMDVkNDQiIGQ9Ik00MyAwaDExNHYyMEg0M3oiLz4KICAgIDxwYXRoIGZpbGw9InVybCgjYikiIGQ9Ik0wIDBoMTMxdjIwSDB6Ii8+CiAgPC9nPgogIDxnIGZpbGw9IiNmZmYiIHRleHQtYW5jaG9yPSJtaWRkbGUiCiAgICAgZm9udC1mYW1pbHk9IkRlamFWdSBTYW5zLFZlcmRhbmEsR2VuZXZhLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiPgogICAgPHRleHQgeD0iMjEuNSIgeT0iMTUiIGZpbGw9IiMwMTAxMDEiIGZpbGwtb3BhY2l0eT0iLjMiPgogICAgICBDUkFOCiAgICA8L3RleHQ+CiAgICA8dGV4dCB4PSIyMS41IiB5PSIxNCI+CiAgICAgIENSQU4KICAgIDwvdGV4dD4KICAgIDx0ZXh0IHg9Ijg2IiB5PSIxNSIgZmlsbD0iIzAxMDEwMSIgZmlsbC1vcGFjaXR5PSIuMyI+CiAgICAgIG5vdCBwdWJsaXNoZWQKICAgIDwvdGV4dD4KICAgIDx0ZXh0IHg9Ijg2IiB5PSIxNCI+CiAgICAgIG5vdCBwdWJsaXNoZWQKICAgIDwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==" alt="CRAN_Status_Badge" /></a></p>
 <p>Set of Assumptions for Factor and Principal Component Analysis. Tests for Kaiser-Meyer-Olkin (KMO) and Communalities in a dataset. It provides a final sample by removing variables in a iterable manner while keeping account of the variables that were removed in each step.</p>
 <h2 id="installation">Installation</h2>
-<p>You can install the released version of FactorAssumptions from <a href="https://github.com/storopoli/FactorAssumptions">Github</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">## install devtools if not already</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">requireNamespace</span>(<span class="st">&quot;devtools&quot;</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)) {</span>
-<span id="cb1-3"><a href="#cb1-3"></a>  <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
-<span id="cb1-4"><a href="#cb1-4"></a>}</span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">## install FactorAssumptions from Github</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;storopoli/FactorAssumptions&quot;</span>)</span></code></pre></div>
+<ul>
+<li>You can install from CRAN</li>
+<li>You can install the released version of FactorAssumptions from <a href="https://github.com/storopoli/FactorAssumptions">Github</a></li>
+</ul>
+<!-- end list -->
+
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;FactorAssumptions&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">## install devtools if not already</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="cf">if</span> (<span class="op">!</span><span class="kw">requireNamespace</span>(<span class="st">&quot;devtools&quot;</span>, <span class="dt">quietly =</span> <span class="ot">TRUE</span>)) {</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">## install FactorAssumptions from Github</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;storopoli/FactorAssumptions&quot;</span>)</span></code></pre></div>
 <h2 id="what-is-kmo-and-communalities">What is KMO and Communalities?</h2>
 <p><em>Factor Analysis</em> and <em>Principal Components Analysis</em> (PCA) have some precautions and assumptions to be observed (Hair et al. (2018)).</p>
 <p>The first one is the KMO (Kaiser-Meyer-Olkin) measure, which measures the proportion of variance among the variables that can be derived from the common variance, also called systematic variance. KMO is computed between 0 and 1. Low values (close to 0) indicate that there are large partial correlations in comparison to the sum of the correlations, that is, there is a predominance of correlations of the variables that are problematic for the factorial/principal component analysis. Hair et al. (2018) suggest that individual KMOs smaller than 0.5 be removed from the factorial/principal component analysis. Consequently, this removal causes the overall KMO of the remaining variables of the factor/principal component analysis to be greater than 0.5.</p>
@@ -622,7 +629,7 @@ body {
 <h1 id="author">Author</h1>
 <p>Jose Eduardo Storopoli <a href="mailto:thestoropoli@gmail.com">e-mail</a></p>
 <h1 id="references">References</h1>
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 
 <div id="ref-hair2018">
 

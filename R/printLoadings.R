@@ -11,7 +11,11 @@
 #'
 #' @importFrom utils getS3method
 #'
-#' @examples \donttest{printLoadings(fa.fit, digits = 3, cutoff = 0.4, sort = TRUE)}
+#' @examples
+#' set.seed(123)
+#' df <- as.data.frame(matrix(rnorm(100*10, 1, .5), ncol=10))
+#' fit <- principal(df, nfactors = 2)
+#' printLoadings(fit$loadings, digits = 3, cutoff = 0.4, sort = TRUE)
 #'
 #' @export
 

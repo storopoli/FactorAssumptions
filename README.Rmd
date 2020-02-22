@@ -39,9 +39,13 @@ Set of Assumptions for Factor and Principal Component Analysis.
 Tests for Kaiser-Meyer-Olkin (KMO) and Communalities in a dataset. It provides a final sample by removing variables in a iterable manner while keeping account of the variables that were removed in each step.
 
 ## Installation
-You can install the released version of FactorAssumptions from [Github](https://github.com/storopoli/FactorAssumptions) with:
+
+* You can install from CRAN
+* You can install the released version of FactorAssumptions from [Github](https://github.com/storopoli/FactorAssumptions)
 
 ```{r install, eval=FALSE}
+install.packages("FactorAssumptions")
+
 ## install devtools if not already
 if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")

@@ -26,6 +26,9 @@ Helper function for printing rotated component matrix
 Function to get a rotated component matrix from a factor analysis in psych while sorting and cutoff
 }
 \examples{
-\donttest{printLoadings(fa.fit, digits = 3, cutoff = 0.4, sort = TRUE)}
+set.seed(123)
+df <- as.data.frame(matrix(rnorm(100*10, 1, .5), ncol=10))
+fit <- principal(df, nfactors = 2)
+printLoadings(fit$loadings, digits = 3, cutoff = 0.4, sort = TRUE)
 
 }

@@ -12,8 +12,9 @@
 #' \item \code{kmo_results} - Results of the final iteration of the \code{\link{kmo}} function
 #'}
 #' @examples
-#' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}
-#' \donttest{kmo_optimal_solution(df)}
+#' set.seed(123)
+#' df <- as.data.frame(matrix(rnorm(100*10, 1, .5), ncol=10))
+#' kmo_optimal_solution(df, squared = FALSE)
 #'
 #'@seealso
 #' \code{\link{kmo}} for kmo computation function

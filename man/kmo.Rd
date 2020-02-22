@@ -23,5 +23,7 @@ A list with \enumerate{
 \code{kmo()} handles both positive definite and not-positive definite matrix by employing the \emph{Moore-Penrose} inverse (pseudoinverse)
 }
 \examples{
-\dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}\donttest{kmo(df, squared = TRUE)}
+set.seed(123)
+df <- as.data.frame(matrix(rnorm(100*10, 1, .5), ncol=10))
+kmo(df, squared = FALSE)
 }

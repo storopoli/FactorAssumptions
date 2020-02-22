@@ -20,12 +20,11 @@
 #'
 #' @importFrom psych principal
 #' @importFrom psych fa
-#' @importFrom psych fa.diagram
-#' @importFrom graphics plot
 #'
 #' @examples
-#' \dontshow{set.seed(123); df <- as.data.frame(matrix(rnorm(1000),100,10));}
-#' \donttest{communalities_optimal_solution(df, nfactors = 2,type = "principal")}
+#' set.seed(123)
+#' df <- as.data.frame(matrix(rnorm(100*10, 1, .5), ncol=10))
+#' communalities_optimal_solution(df, nfactors = 2,type = "principal", squared = FALSE)
 #'
 #' @seealso
 #' \code{\link[psych]{principal}} the PCA function from psych and
@@ -34,7 +33,6 @@
 
 communalities_optimal_solution <- function(df, nfactors, type, rotate="varimax", fm="minres", squared=TRUE){
   removed <- c()
-  df <- as.data.frame(df)
   if (type == "principal"){
     results <- principal(df, nfactors = nfactors, rotate = rotate, scores = T)
     while (any(as.data.frame(as.data.frame(results$communality)) < 0.5)){
@@ -77,10 +75,6 @@ communalities_optimal_solution <- function(df, nfactors, type, rotate="varimax",
     stop("")
     }
   loadings <- as.table(printLoadings(results$loadings))
-
-  fa.diagram(results, digits = 3, cut = 0.4, sort = T) # Diagram of Factors, items and loadings
-
-  plot(results)
 
   return(list(
     df = df,

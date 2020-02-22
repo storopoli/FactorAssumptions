@@ -12,10 +12,15 @@ account of the variables that were removed in each step.
 
 ## Installation
 
-You can install the released version of FactorAssumptions from
-[Github](https://github.com/storopoli/FactorAssumptions) with:
+  - You can install from CRAN
+  - You can install the released version of FactorAssumptions from
+    [Github](https://github.com/storopoli/FactorAssumptions)
+
+<!-- end list -->
 
 ``` r
+install.packages("FactorAssumptions")
+
 ## install devtools if not already
 if (!requireNamespace("devtools", quietly = TRUE)) {
   install.packages("devtools")
@@ -60,7 +65,7 @@ Jose Eduardo Storopoli [e-mail](mailto:thestoropoli@gmail.com)
 
 # References
 
-<div id="refs" class="references">
+<div id="refs" class="references hanging-indent">
 
 <div id="ref-hair2018">
 
