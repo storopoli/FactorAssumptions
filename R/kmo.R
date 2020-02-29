@@ -11,7 +11,7 @@
 #' \item \code{AIR} - Anti-image Correlation Matrix
 #'}
 #'
-#' @import MASS
+#' @importFrom MASS ginv
 #' @importFrom stats cor
 #' @importFrom stats sd
 #'

@@ -3,7 +3,7 @@
 export(communalities_optimal_solution)
 export(kmo)
 export(kmo_optimal_solution)
-import(MASS)
+importFrom(MASS,ginv)
 importFrom(psych,fa)
 importFrom(psych,principal)
 importFrom(stats,cor)
