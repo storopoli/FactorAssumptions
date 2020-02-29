@@ -74,7 +74,7 @@ communalities_optimal_solution <- function(df, nfactors, type, rotate="varimax",
     message("Please choose type either principal or fa")
     stop("")
     }
-  loadings <- as.table(printLoadings(results$loadings))
+  loadings <- results$loadings
 
   return(list(
     df = df,

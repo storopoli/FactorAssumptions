@@ -56,8 +56,7 @@ communalities should be 0.5 or greater (Hair et al. (2018)).
 
 ## Vignette
 
-I encourage you to check the [vignette](doc/vignette.Rmd) on how to use
-the package.
+I encourage you to check the vignette on how to use the package.
 
 # Author
 

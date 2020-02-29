@@ -1,5 +1,11 @@
 # FactorAssumptions 1.1.1
 
+February, 29th 2020
+
+* altered all `print()` and `cat()` messages to `messages()`
+
+# FactorAssumptions 1.1.1
+
 August, 22th 2019
 
 * Added argument squared to `kmo_optimal_solution` and `communalities_optimal_solution` functions. They are used to squared matrices such as adjacency matrices and other bibliometric co-occurrence matrices.

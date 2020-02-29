@@ -2,7 +2,7 @@ Type: Package
 Package: FactorAssumptions
 Title: Set of Assumptions for Factor and Principal Component
     Analysis
-Version: 1.1.1
+Version: 1.1.2
 Authors@R: person("Jose", "Storopoli", role = c("aut", "cre"), email = "thestoropoli@gmail.com", comment = c(ORCID = "0000-0002-0559-5176"))
 Maintainer: Jose Storopoli <thestoropoli@gmail.com>
 Description: Tests for Kaiser-Meyer-Olkin (KMO) and
