@@ -1,3 +1,9 @@
+# FactorAssumptions 2.0.0
+
+March, 8th 2022
+
+* updated author email address
+
 # FactorAssumptions 1.1.1
 
 February, 29th 2020

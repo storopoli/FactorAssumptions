@@ -66,8 +66,4 @@ The second assumption of a valid factor or PCA analysis is the communality of th
 
 I encourage you to check the vignette on how to use the package.
 
-# Author
-Jose Eduardo Storopoli
-[e-mail](mailto:thestoropoli@gmail.com)
-
 # References

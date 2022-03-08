@@ -58,10 +58,6 @@ communalities should be 0.5 or greater (Hair et al. (2018)).
 
 I encourage you to check the vignette on how to use the package.
 
-# Author
-
-Jose Eduardo Storopoli [e-mail](mailto:thestoropoli@gmail.com)
-
 # References
 
 <div id="refs" class="references hanging-indent">
